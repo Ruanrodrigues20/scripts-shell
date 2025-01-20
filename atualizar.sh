@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # Função para exibir as opções do menu
 show_menu() {
     echo -e "\n\e[34m=== Gerenciador de Atualizações ===\e[0m"
@@ -17,6 +15,7 @@ list_updates() {
     echo -e "\n\e[34mListando atualizações disponíveis...\e[0m"
     
     echo -e "\n\e[33mAPT:\e[0m"
+    sudo apt update 2>/dev/null | grep -E "^Instalável|pacotes" || echo "Nenhuma atualização disponível para APT."
     sudo apt update 2>/dev/null | grep -E "^Instalável|pacotes" || echo "Nenhuma atualização disponível para APT."
 
     echo -e "\n\e[33mSnap:\e[0m"
