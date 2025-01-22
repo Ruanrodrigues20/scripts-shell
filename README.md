@@ -4,10 +4,10 @@ This repository contains various shell scripts for different purposes. Below is 
 
 ## Available Scripts
 
-### [All Update Script (`all-update.sh`)](all-update/README.md)
+### [All Update Script (`all-update.sh`)](all-update/)
 A script to manage system updates across various package managers (APT, Snap, Flatpak). 
 
-### [Vim Config Script (`vim-config.sh`)](vim-config/README.md)
+### [Vim Config Script (`vim-config.sh`)](vim-config/)
 A script to configure Vim with plugins and necessary NPM packages.
 
 
