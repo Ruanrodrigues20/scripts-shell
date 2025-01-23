@@ -9,6 +9,10 @@ set shiftwidth=4                 " Indentar com 4 espaços
 set expandtab                    " Converter tabs em espaços
 set wrap                         " Habilitar quebra de linha
 set termguicolors                " Habilitar suporte a cores
+set noerrorbells       " Desativa sons de erro
+set visualbell         " Substitui sons por um alerta visual
+set mousemodel=popup
+
 
 " --- Instalar Plugins ---
 call plug#begin('~/.vim/plugged')
@@ -27,7 +31,14 @@ Plug 'preservim/nerdtree'
 
 " NERDTree com ícones
 Plug 'ryanoasis/vim-devicons'
-
+Plug 'ojroques/vim-oscyank'
+Plug 'preservim/nerdtree'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'sheerun/vim-polyglot'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'honza/vim-snippets'
 call plug#end()
 
 " --- Configurações para Plugins ---
@@ -58,16 +69,6 @@ map <C-d> :wincmd p<CR>  " Alterna entre a janela do NERDTree e a do código
 " O número do arquivo corresponde à posição na lista de buffers
 " Por exemplo, CTRL + 2 alterna para o segundo arquivo aberto
 
-map <C-1> :buffer 1<CR>
-map <C-2> :buffer 2<CR>
-map <C-3> :buffer 3<CR>
-map <C-4> :buffer 4<CR>
-map <C-5> :buffer 5<CR>
-map <C-6> :buffer 6<CR>
-map <C-7> :buffer 7<CR>
-map <C-8> :buffer 8<CR>
-map <C-9> :buffer 9<CR>
-
 " --- Atalhos de edição ---
 map <C-z> :undo<CR>           " Ctrl+Z para desfazer
 map <C-y> :redo<CR>           " Ctrl+Y para refazer
@@ -78,3 +79,20 @@ map <C-s> :wa<CR>             " Ctrl+S para salvar todos os arquivos abertos
 " --- Fechar o NERDTree e sair do Vim se o único arquivo aberto for fechado ---
 autocmd BufEnter * if len(tabpagebuflist()) == 1 && exists("g:NERDTree") && NERDTree.IsOpen() | quit | endif
 
+
+	
+
+" AirLine "
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+
+let g:airline_theme = 'dracula'
+
+
+" Navigate between buffers
+nmap ty :bn<CR>
+nmap tr :bp<CR>
+
+
+" Delete a buffer
+nmap td :bd<CR>
